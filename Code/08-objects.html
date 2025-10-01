@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+    </head>
+    <body>
+        <script>
+            const product = {
+                name: 'baseball',
+                price: 1000
+            }
+
+            console.log(product);
+
+            //change name
+            product.name = 'basketball';
+            console.log(product);
+
+            //add new property
+            product.color = 'brown';
+            console.log(product);
+
+            //delete a property
+            delete product.color;
+            console.log(product);
+
+            //bracket notation
+            console.log(product['name'])
+
+            //adding property using bracket notation
+            product['delivery-time'] = '1 day'
+            console.log(product);
+
+            //object inside object
+            const product2 = {
+                name: 'socks',
+                price: 199,
+                rating : {
+                    stars: 4,
+                    count: 55
+                }
+            }
+
+            console.log(product2.rating.count);
+
+            //function inside object
+            const product3 = {
+                name: 'shirt',
+                price: 400,
+                details : function productDetails() {
+                    console.log('100% cotton!')
+                }
+            }
+
+            product3.details();
+
+            //convert javascript object into JSON
+            const jsonString = JSON.stringify(product2);
+            console.log(jsonString);
+
+            //convert json into javascript object
+            console.log(JSON.parse(jsonString));
+
+            //objects are references
+            const object1 = {
+                name: 'jitesh'
+            };
+
+            const object2 = object1;
+        </script>
+    </body>
+</html>
