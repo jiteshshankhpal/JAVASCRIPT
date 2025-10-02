@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial;
+            }
+
+            .sub-btn {
+                background-color: black;
+                border: none;
+                padding: 10px 15px;
+                color: white;
+                border-radius: 40px;
+                font-weight: bold;
+                margin-bottom: 40px;
+                cursor: pointer;
+            }
+
+            .is-subscribed {
+                background-color: rgb(240, 240, 240);
+                color: black;
+            }
+
+            .cost-input {
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .cal-btn {
+                background-color: green;
+                color: white;
+                font-size: 15px;
+                border: none;
+                padding: 12px 15px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <p>YouTube Subscribe Button</p>
+
+        <button class="sub-btn" onclick="
+            subscribe();
+        ">Subscribe</button>
+
+        <p>Amazon Shipping Calculator</p>
+
+        <input class="cost-input" placeholder="Cost of order" onkeydown="costKeyDown(event)">
+
+        <button class="cal-btn" onclick="
+            CalculateCost();
+        ">Calculate</button>
+        
+        <p class="result"></p>
+
+        <script>
+            function subscribe() {
+                const btnElement =  document.querySelector('.sub-btn');
+                if (btnElement.innerHTML === 'Subscribe'){
+                    btnElement.innerHTML = 'Subscribed';
+                    btnElement.classList.add('is-subscribed')
+                } else {
+                    btnElement.innerHTML = 'Subscribe';
+                    btnElement.classList.remove('is-subscribed')
+                }
+            }
+
+            function CalculateCost() {
+                const inputValue = document.querySelector('.cost-input').value;
+                let cost = Number(inputValue);
+
+                if(cost < 40) {
+                    cost += 10
+                }
+
+                document.querySelector('.result').innerHTML = `$${cost}`
+            }
+
+            function costKeyDown(event){
+                if(event.key === 'Enter') {
+                    CalculateCost();
+                }
+            }
+        </script>
+    </body>
+</html>
