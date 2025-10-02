@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .gaming-btn,
+            .music-btn,
+            .tech-btn {
+                background-color: rgb(233, 233, 233);
+                color: black;
+                border: none;
+                padding: 10px 20px;
+                font-weight: bold;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            .is-toggled {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="gaming-btn btn" onclick="
+            toggle('.gaming-btn');
+        ">Gaming</button>
+
+        <button class="music-btn btn" onclick="
+            toggle('.music-btn');
+        ">Music</button>
+
+        <button class="tech-btn btn" onclick="
+            toggle('.tech-btn');
+        ">Tech</button>
+
+        <script>
+            function turnOffPreviosBtn() {
+               const btn = document.querySelector('.is-toggled')
+               if(btn) {
+                    btn.classList.remove('is-toggled');
+               }
+            }
+
+            function toggle(btn) {
+                const btnElement = document.querySelector(btn);
+                
+                if (!btnElement.classList.contains('is-toggled')) {
+                    turnOffPreviosBtn();
+                    btnElement.classList.add('is-toggled');
+                } else {
+                    btnElement.classList.remove('is-toggled');
+                }   
+            }
+
+
+        </script>
+    </body>
+</html>
