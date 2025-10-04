@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    <head></head>
+
+    <body>
+        <script>
+            function findIndex (arr, searchWord) {
+               
+                let index = -1;
+
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] === searchWord) {
+                        index = i;
+                        break;
+                    }
+                }
+
+                return index;
+            }
+
+            console.log(findIndex(['search', 'good' , 'sam', 'search'], 'search'));
+        </script>
+    </body>
+
+</html>
