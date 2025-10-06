@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+
+            //functions as value
+            const gesture =  function () {
+                console.log('hi')
+            }
+
+            gesture();
+
+            //passing a function inside a function
+            function display(param) {
+                param();   
+            }
+
+            display(function() {
+                console.log('hello4');
+            })
+
+            //setTimeout(callBack, delay);
+            setTimeout(function() {
+                console.log('hello5');
+            }, 3000);
+
+            console.log('next line');
+        </script>
+    </body>
+</html>
