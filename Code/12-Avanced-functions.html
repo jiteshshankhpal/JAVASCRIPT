@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <button class="btn">click</button>
+
         <script>
 
             //functions as value
@@ -25,6 +27,36 @@
             }, 3000);
 
             console.log('next line');
+
+            //arrow function
+            const arrowFunction = () => {
+                console.log('arrow function')
+            }
+
+            
+            //eventListner
+
+            buttonElement = document.querySelector('.btn');
+            buttonElement.addEventListener('click', () => {
+                console.log('click')
+            })
+
+            //filter
+            console.log([1, -3, 5].filter((value, index) => {
+                /*
+                if(value >= 0){
+                    return true;
+                } else {
+                    return false;
+                }
+                */
+                return value >= 0;
+            }));
+
+            //map
+            console.log([1, 2, 3].map((value, index) => {
+                return value + 2;
+            }));
         </script>
     </body>
 </html>

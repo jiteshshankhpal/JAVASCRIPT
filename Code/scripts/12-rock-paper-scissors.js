@@ -11,6 +11,31 @@ function updateScore() {
         .innerHTML = `Wins ${score.wins}, Losses ${score.losses}, Ties ${score.ties}`;
 }
 
+document.querySelector('.rock-btn')
+    .addEventListener('click', () => {
+        playGame('rock');
+    });
+
+document.querySelector('.paper-btn')
+    .addEventListener('click', () => {
+        playGame('paper');
+    });
+
+document.querySelector('.scissors-btn')
+    .addEventListener('click', () => {
+        playGame('scissors');
+    });
+
+document.body.addEventListener('keydown', (event) => {
+    if(event.key === 'r'){
+        playGame('rock');
+    } else if(event.key === 'p') {
+        playGame('paper');
+    } else if(event.key === 's') {
+        playGame('scissors');
+    }
+})
+
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
 
@@ -86,7 +111,7 @@ let notAutoPlaying = true;
 
 function autoPlay() {
     if (notAutoPlaying) {
-        intervalId = setInterval(function () {
+        intervalId = setInterval(() => {
             const playerMove = pickComputerMove();
             playGame(playerMove);
         }, 1000)

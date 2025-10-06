@@ -12,27 +12,32 @@ renderTodoList();
 function renderTodoList () {
     let todoListHTML = '';
 
-    todoList.forEach(function(taskObject, index) {
+    todoList.forEach((taskObject, index) => {
         const { name, dueDate } = taskObject;
         let html =
             `<div>${name}</div>
              <div>${dueDate}</div> 
-            <button class="del-btn" onclick="
-                todoList.splice(${index}, 1);
-                renderTodoList();
-            ">Delete</button>
+            <button class="del-btn">Delete</button>
             `
         todoListHTML += html;
     })
 
-    for (let i = 0; i < todoList.length; i++) {
-        
-    }
-
-    console.log(todoListHTML);
-
     document.querySelector('.todo-list').innerHTML = `${todoListHTML}`;
+
+    document.querySelectorAll('.del-btn')
+        .forEach((delBtn, index) => {
+            delBtn.addEventListener('click', () => {
+                todoList.splice(index, 1);
+                renderTodoList();
+            })
+        });
 }
+
+document.querySelector('.add-btn')
+    .addEventListener('click', () => {
+        addTask();
+    });
+
 
 function addTask() {
     const inputELement = document.querySelector('.task-input');
@@ -46,6 +51,5 @@ function addTask() {
     inputELement.value = '';
     dateInput.value = ''
 
-    renderTodoList();
-    
+    renderTodoList();  
 }
