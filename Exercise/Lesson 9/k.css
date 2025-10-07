@@ -43,5 +43,12 @@ body {
     cursor: pointer;
 }
 
+.message-text {
+    margin-top: 20px;
+}
 
+.yes-btn,
+.no-btn {
+    padding: 10px;
+}
 
