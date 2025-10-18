@@ -1,6 +1,6 @@
 class Car {
-    brand;
-    model;
+    #brand;
+    #model;
     speed = 0;
     isTrunkOpen = false;
 
@@ -42,7 +42,7 @@ class Car {
     }
 
     displayInfo() {
-        console.log(`${this.brand} ${this.model}, Speed: ${this.speed} km/h, isTrunkOpen: ${this.isTrunkOpen}`);
+        console.log(`${this.#brand} ${this.#model}, Speed: ${this.speed} km/h, isTrunkOpen: ${this.isTrunkOpen}`);
     }
 }
 
@@ -57,16 +57,36 @@ const nano = new Car({
 });
 
 
-swift.displayInfo();
-swift.openTrunk();
-swift.displayInfo();
-swift.go();
-swift.displayInfo();
-swift.closeTrunk();
-swift.go();
-swift.displayInfo();
-swift.closeTrunk();
-swift.displayInfo();
+class RaceCar extends Car {
+    acceleration = 0;
+
+    constructor(carDetails){
+        super(carDetails);
+        this.acceleration = carDetails.acceleration;
+    }
+
+    go() {
+        this.speed += this.acceleration;
+
+        if (this.speed > 300) {
+            this.speed = 300
+        }
+    }  
+
+    displayInfo() {
+        console.log(`${this.brand} ${this.model}, acceleration: ${this.acceleration}`);
+    }
+}
+
+const galardo = new RaceCar({
+    brand: 'lamborghini',
+    model: 'galardo',
+    acceleration: 20
+})
+
+galardo.go();
+galardo.displayInfo();
+
 
 
 
