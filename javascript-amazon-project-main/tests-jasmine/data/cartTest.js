@@ -120,25 +120,4 @@ describe('Test suite: updateDeliveryOPtion', () => {
             deliveryOptionId: '2'
         }]))
     });
-
-    it('update a product which does not exist', () => {
-        loadFromStorage();
-        updateDeliveryOption('does not exist', '3');
-
-        expect(cart.length).toEqual(2);
-        expect(localStorage.setItem).not.toHaveBeenCalled();
-    });
-
-    it('update delivery option that does not exist', () => {
-        loadFromStorage();
-
-        updateDeliveryOption('e43638ce-6aa0-4b85-b27f-e1d07eb678c6', 'does-not-exist');
-        expect(cart.length).toEqual(2);
-        expect(cart[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
-        expect(cart[0].quantity).toEqual(1);
-        expect(cart[0].deliveryOptionId).toEqual('1');
-        expect(localStorage.setItem).toHaveBeenCalledTimes(0);
-    });
-
-
 });

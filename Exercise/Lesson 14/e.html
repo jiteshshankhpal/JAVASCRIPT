@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.addEventListener('error', () => {
+                console.log('Network or CORS error. The request was blocked by the browser.');
+            });
+
+            xhr.open('GET', 'https://amazon.com');
+            xhr.send();
+           
+        </script>
+    </body>
+</html>

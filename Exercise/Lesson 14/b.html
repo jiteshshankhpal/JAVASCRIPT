@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            const promise = fetch(
+                'https://supersimplebackend.dev/greeting'
+            ).then((response) => {
+                return response.text();
+            }).then((data) => {
+                console.log(data)
+            })
+        </script>
+    </body>
+</html>
